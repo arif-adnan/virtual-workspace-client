@@ -1,7 +1,7 @@
+import { Menu, Popover, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import { Popover, Transition, Menu } from "@headlessui/react";
-import { CgMenuGridR } from "react-icons/cg";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { CgMenuGridR } from "react-icons/cg";
 import {
   Link,
   NavLink,
@@ -9,8 +9,8 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
-import logo from "../../image/logo.png";
 import useAuth from "../../hooks/useAuth";
+import logo from "../../image/logo.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -68,13 +68,13 @@ export default function ClassNav({ handleClick }) {
             >
               PEOPLE
             </NavLink> */}
-            <NavLink
+            {/* <NavLink
               to={`/myclasses/classroom/${code}/assigedposts`}
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
               className="text-base font-links font-bold mt-2 mr-1 hover:text-[#E1FF00]"
             >
               ASSIGNED
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to={`/myclasses/classroom/${code}/talk`}
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
