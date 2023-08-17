@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { GridLoader } from "react-spinners";
 // import PostWorkPhoto from "../../image/work.svg";
-import PostWorkPhoto from "../image/work.svg";
-import AvatarPhoto from "../image/avatar.svg";
 import useAuth from "../hooks/useAuth";
+import AvatarPhoto from "../image/avatar.svg";
+import PostWorkPhoto from "../image/work.svg";
 import ClassNav from "../pages/Shared/ClassNav";
 
 const AssignedPosts = () => {
@@ -14,7 +14,7 @@ const AssignedPosts = () => {
   const { code } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/classes/${code}`)
+    fetch(`https://virtual-workspace-server.cyclic.cloud/classes/${code}`)
       .then((res) => res.json())
       .then((data) => {
         setCl(data);

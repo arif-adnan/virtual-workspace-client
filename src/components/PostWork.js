@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import Navigation from "../pages/Shared/Navigation";
-import PostWorkPhoto from "../image/work.svg";
 import AvatarPhoto from "../image/avatar.svg";
+import PostWorkPhoto from "../image/work.svg";
+import Navigation from "../pages/Shared/Navigation";
 
 const PostWork = () => {
   const { user } = useAuth();
@@ -26,7 +26,7 @@ const PostWork = () => {
     const projectData = { displayName: name, email, project, org, desc, limit };
     e.preventDefault();
 
-    fetch(`http://localhost:5000/projects`, {
+    fetch(`https://virtual-workspace-server.cyclic.cloud/projects`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

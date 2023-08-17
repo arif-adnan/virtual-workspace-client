@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import ClassNav from "../pages/Shared/ClassNav";
-import AssignmentPhoto from "../image/Assignment.svg";
-import useAuth from "../hooks/useAuth";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import AssignmentPhoto from "../image/Assignment.svg";
+import ClassNav from "../pages/Shared/ClassNav";
 
 const SubmitAssignment = () => {
   const { user } = useAuth();
@@ -17,7 +17,7 @@ const SubmitAssignment = () => {
 
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/users/${email}`)
+      fetch(`https://virtual-workspace-server.cyclic.cloud/users/${email}`)
         .then((res) => res.json())
         .then((data) => {
           setProfiles(data);
@@ -31,7 +31,7 @@ const SubmitAssignment = () => {
     const submissionData = { link, email, displayName, postID };
     // console.log(submissionData);
 
-    fetch(`http://localhost:5000/assignments`, {
+    fetch(`https://virtual-workspace-server.cyclic.cloud/assignments`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

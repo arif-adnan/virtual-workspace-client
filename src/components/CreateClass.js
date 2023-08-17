@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import Navigation from "../pages/Shared/Navigation";
-import CreateRoomPhoto from "../image/create.jpg";
-import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import CreateRoomPhoto from "../image/create.jpg";
+import Navigation from "../pages/Shared/Navigation";
 
 const CreateClass = () => {
   const { user } = useAuth();
@@ -23,7 +23,7 @@ const CreateClass = () => {
     const classroom = { displayName: name, email, subject, org, code };
     e.preventDefault();
 
-    fetch(`http://localhost:5000/classes`, {
+    fetch(`https://virtual-workspace-server.cyclic.cloud/classes`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -33,7 +33,7 @@ const CreateClass = () => {
       .then((res) => res.json())
       .then((data) => {
         alert("Classroom Created!");
-        navigate(`/home`);
+        navigate(`/myclasses`);
       });
   };
 

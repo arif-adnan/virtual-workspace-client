@@ -1,9 +1,9 @@
 import React from "react";
-import ClassNav from "../../pages/Shared/ClassNav";
-import three from "../../image/3.jpg";
-import two from "../../image/2.jpg";
-import four from "../../image/4.jpg";
 import { AiOutlineRise } from "react-icons/ai";
+import two from "../../image/2.jpg";
+import three from "../../image/3.jpg";
+import four from "../../image/4.jpg";
+import ClassNav from "../../pages/Shared/ClassNav";
 
 const Talk = () => {
   return (
@@ -23,7 +23,7 @@ const Talk = () => {
             system with your teacher or manager.
           </p>
           <a
-            href="https://v-workspace-videochat.vercel.app/create"
+            href="https://meet.google.com/"
             target="_blank"
             rel="noreferrer"
           >

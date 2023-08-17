@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GridLoader } from "react-spinners";
 import useAuth from "../hooks/useAuth";
-import Navigation from "../pages/Shared/Navigation";
 import AvatarPhoto from "../image/avatar.svg";
+import Navigation from "../pages/Shared/Navigation";
 
 const JoinedClasses = () => {
   const [classes, setClasses] = useState([]);
@@ -11,7 +11,7 @@ const JoinedClasses = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://virtual-workspace-server.cyclic.cloud/users")
       .then((res) => res.json())
       .then((data) => {
         setClasses(data);

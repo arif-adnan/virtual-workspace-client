@@ -1,10 +1,10 @@
-import { Fragment, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
-import { CgMenuGridR } from "react-icons/cg";
+import { Fragment, useEffect, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { CgMenuGridR } from "react-icons/cg";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "../../image/logo.png";
 import useAuth from "../../hooks/useAuth";
+import logo from "../../image/logo.png";
 
 export default function Navigation() {
   const { user, logout } = useAuth();
@@ -15,7 +15,7 @@ export default function Navigation() {
 
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/users/${email}`)
+      fetch(`https://virtual-workspace-server.cyclic.cloud/users/${email}`)
         .then((res) => res.json())
         .then((data) => {
           setProfiles(data);
@@ -67,18 +67,18 @@ export default function Navigation() {
                     >
                       WORKSPACE
                     </Link>
-                    <Link
+                    {/* <Link
                       to="/joinedclasses"
                       className="text-base font-links font-bold mt-2 mr-1 hover:text-[#E1FF00]"
                     >
                       CLASSROOM
-                    </Link>
-                    <Link
+                    </Link> */}
+                    {/* <Link
                       to="/joinclass"
                       className="text-base font-links font-bold mt-2 mr-1 hover:text-[#E1FF00]"
                     >
                       JOIN
-                    </Link>
+                    </Link> */}
                   </div>
                 )}
               </>

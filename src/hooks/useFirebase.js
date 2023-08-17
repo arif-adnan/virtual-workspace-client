@@ -1,14 +1,14 @@
 import { initializeApp } from "firebase/app";
 import {
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  getAuth,
-  getIdToken,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateProfile,
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    getAuth,
+    getIdToken,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile,
 } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { useEffect, useState } from "react";
@@ -101,7 +101,7 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://virtual-workspace-server.cyclic.cloud/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
@@ -120,7 +120,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://localhost:5000/users", {
+    fetch("https://virtual-workspace-server.cyclic.cloud/users", {
       method: method,
       headers: {
         "content-type": "application/json",

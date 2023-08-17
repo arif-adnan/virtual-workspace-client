@@ -17,7 +17,7 @@ const AssignInClass = () => {
   const codeRef = useRef();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/projects/${id}`)
+    fetch(`https://virtual-workspace-server.cyclic.cloud/projects/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProject(data);
@@ -40,7 +40,7 @@ const AssignInClass = () => {
     };
     console.log(assignData);
 
-    (`http://localhost:5000/classes/assign`, {
+    (`https://virtual-workspace-server.cyclic.cloud/classes/assign`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

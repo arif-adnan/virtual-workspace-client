@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
-import Navigation from "../pages/Shared/Navigation";
-import Avatar from "../image/avatar.svg";
 import { GridLoader } from "react-spinners";
+import useAuth from "../hooks/useAuth";
+import Avatar from "../image/avatar.svg";
+import Navigation from "../pages/Shared/Navigation";
 
 const JoinClass = () => {
   const { user } = useAuth();
@@ -24,7 +24,7 @@ const JoinClass = () => {
     setjoinData(newData);
   };
 
-  fetch(`http://localhost:5000/classes/${joinData.code}`)
+  fetch(`https://virtual-workspace-server.cyclic.cloud/classes/${joinData.code}`)
     .then((res) => res.json())
     .then((data) => {
       setClasses(data);
@@ -41,7 +41,7 @@ const JoinClass = () => {
         courseName,
       };
 
-      fetch(`http://localhost:5000/users/join/${email}`, {
+      fetch(`https://virtual-workspace-server.cyclic.cloud/users/join/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -59,7 +59,7 @@ const JoinClass = () => {
       const id = idRef.current.value;
       const code = codeRef.current.value;
       const info = { id, email, code };
-      fetch(`http://localhost:5000/classes/join/student`, {
+      fetch(`https://virtual-workspace-server.cyclic.cloud/classes/join/student`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -70,7 +70,8 @@ const JoinClass = () => {
         .then((data) => {
           if (data.modifiedCount) {
             setSuccess(true);
-            navigate(`/myclasses/classroom/${joinData.code}`);
+            // navigate(`/myclasses/classroom/${joinData.code}`);
+            navigate('/joinedclasses')
           }
         });
       // console.log(info);

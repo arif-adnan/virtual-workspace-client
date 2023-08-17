@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { GridLoader } from "react-spinners";
 import useAuth from "../hooks/useAuth";
-import Navigation from "../pages/Shared/Navigation";
 import Avatar from "../image/avatar.svg";
+import Navigation from "../pages/Shared/Navigation";
 import "./Workplace.css";
-import { Link } from "react-router-dom";
 
 const Workspace = () => {
   const [projects, setProjects] = useState([]);
@@ -13,12 +13,12 @@ const Workspace = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch("http://localhost:5000/projects")
+    fetch("https://virtual-workspace-server.cyclic.cloud/projects")
       .then((res) => res.json())
       .then((data) => setProjects(data));
     setLoading(true);
 
-    fetch("http://localhost:5000/users")
+    fetch("https://virtual-workspace-server.cyclic.cloud/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

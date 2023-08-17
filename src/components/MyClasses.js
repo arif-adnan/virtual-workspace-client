@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { GridLoader } from "react-spinners";
 import useAuth from "../hooks/useAuth";
 import Navigation from "../pages/Shared/Navigation";
-import { GridLoader } from "react-spinners";
-import { Link } from "react-router-dom";
 
 const MyClasses = () => {
   const [classes, setClasses] = useState([]);
@@ -10,7 +10,7 @@ const MyClasses = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch("http://localhost:5000/classes")
+    fetch("https://virtual-workspace-server.cyclic.cloud/classes")
       .then((res) => res.json())
       .then((data) => setClasses(data));
     setLoading(true);

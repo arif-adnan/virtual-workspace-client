@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import ClassNav from "../pages/Shared/ClassNav";
 import {
   AiFillFire,
   AiFillPushpin,
@@ -8,6 +7,7 @@ import {
   AiOutlineMessage,
 } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router-dom";
+import ClassNav from "../pages/Shared/ClassNav";
 
 const PostAnnouncement = () => {
   const titleRef = useRef();
@@ -29,7 +29,7 @@ const PostAnnouncement = () => {
       const doc = docRef.current.value;
       const announcementData = { title, tag, description, link, doc, postID };
 
-      fetch(`http://localhost:5000/classes/posts/${code}`, {
+      fetch(`https://virtual-workspace-server.cyclic.cloud/classes/posts/${code}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
